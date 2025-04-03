@@ -24,7 +24,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    dockerImage = docker.build("crisfromaustria/bahnhof")
+                    def dockerImage = docker.build("crisfromaustria/bahnhof")
                 }
             }
         }
