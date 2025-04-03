@@ -9,6 +9,7 @@ pipeline {
             steps {
                 script {
                     sh 'git --version'
+                    sh 'docker --version'
                 }
             }
         }
