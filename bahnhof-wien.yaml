@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bahnhof-w
+  labels:
+    app: bahnhof-w
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bahnhof-w
+  template:
+    metadata:
+      labels:
+        app: bahnhof-w
+    spec:
+      containers:
+      - name: bahnhof
+        image: crisfromaustria/bahnhof
+        ports:
+        - containerPort: 8080
+        env:
+        - name: bahnhof
+          value: Wien
+        - name: bahnhofList
+          value: Linz
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bahnhof-wien
+spec:
+  selector:
+    app: bahnhof-w
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
