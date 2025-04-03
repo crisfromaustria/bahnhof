@@ -48,12 +48,6 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-		    <plugin>
-		      <artifactId>maven-clean-plugin</artifactId>
-		      <configuration>
-		        <failOnError>false</failOnError>
-		      </configuration>
-		    </plugin>
 		</plugins>
 	</build>
 
