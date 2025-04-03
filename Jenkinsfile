@@ -20,11 +20,20 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        
+
+	def dockerImage
         stage('Docker Build') {
             steps {
                 script {
-                    def dockerImage = docker.build("crisfromaustria/bahnhof")
+                    dockerImage = docker.build("crisfromaustria/bahnhof")
+                }
+            }
+        }
+
+	stage('Dockerhub Push') {
+            steps {
+                script {
+	                dockerImage.push()
                 }
             }
         }
