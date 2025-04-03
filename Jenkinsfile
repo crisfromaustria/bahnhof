@@ -20,5 +20,13 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+        
+        stage('Docker Build') {
+            steps {
+                script {
+                    dockerImage = docker.build("crisfromaustria/bahnhof")
+                }
+            }
+        }
     }
 }
