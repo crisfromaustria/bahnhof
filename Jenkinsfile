@@ -21,20 +21,12 @@ pipeline {
             }
         }
 
-	def dockerImage
         stage('Docker Build') {
             steps {
                 script {
-                    dockerImage = docker.build("crisfromaustria/bahnhof")
-                }
-            }
-        }
-
-	stage('Dockerhub Push') {
-            steps {
-                script {
-	                dockerImage.push()
-                }
+	            def dockerImage = docker.build("crisfromaustria/bahnhof")
+                    dockerImage.push()
+		}
             }
         }
     }
