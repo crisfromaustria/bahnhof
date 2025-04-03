@@ -5,16 +5,10 @@ pipeline {
       maven 'maven'
     }
     stages {
-        stage('Checkout') {
-            steps {
-                git scm
-            }
-        }
-
         stage('Validate') {
             steps {
                 script {
-                    sh 'ls -la'
+                    sh 'git --version'
                 }
             }
         }
