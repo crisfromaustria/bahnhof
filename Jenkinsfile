@@ -25,7 +25,9 @@ pipeline {
             steps {
                 script {
 	            def dockerImage = docker.build("crisfromaustria/bahnhof")
-                    dockerImage.push()
+		    docker.withRegistry('https://registry.hub.docker.com', '9cf7e916-2f92-45bd-896b-ff60e7373cd5') {
+			    dockerImage.push()
+		    }
 		}
             }
         }
