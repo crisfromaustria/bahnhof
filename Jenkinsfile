@@ -5,6 +5,20 @@ pipeline {
       maven 'maven'
     }
     stages {
+        stage('Checkout') {
+            steps {
+                git scm
+            }
+        }
+
+        stage('Validate') {
+            steps {
+                script {
+                    sh 'ls -la'
+                }
+            }
+        }
+
         stage('Maven Build') {
             steps {
                 echo 'Maven Build'
