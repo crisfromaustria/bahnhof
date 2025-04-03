@@ -4,12 +4,6 @@ pipeline {
       maven 'maven' 
     }
     stages {
-        stage('Git') {
-            steps {
-                echo 'Git'
-                git 'https://github.com/crisfromaustria/bahnhof.git'
-            }
-        }
         stage('Maven Build') {
             steps {
                 echo 'Maven Build'
