@@ -27,14 +27,14 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
+		<start-class>at.fontain.bahnhof.BahnhofApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
 		<dependency>
     			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-compiler-plugin</artifactId>
@@ -49,30 +49,22 @@
 
 	<build>
 		<finalName>bahnhof</finalName>
-	    <plugins>
-	      <plugin>
-	        <groupId>org.apache.maven.plugins</groupId>
-	        <artifactId>maven-jar-plugin</artifactId>
-	        <!-- Here come other details
-	        ...
-	        -->
-	        <configuration>
-	          <archive>
-	            <manifest>
-	              <addClasspath>true</addClasspath>
-	              <mainClass>at.fontain.bahnhof.BahnhofApplication</mainClass>
-	            </manifest>
-	          </archive>
-	        </configuration>
-	        <!-- Here come other details
-	        ...
-	        -->
-	      </plugin>
+		<plugins>
 		    <plugin>
-		      <groupId>org.springframework.boot</groupId>
-		      <artifactId>spring-boot-maven-plugin</artifactId>
+		        <groupId>org.springframework.boot</groupId>
+		        <artifactId>spring-boot-maven-plugin</artifactId>
+		        <configuration>
+		            <mainClass>at.fontain.bahnhof.BahnhofApplication</mainClass>
+		            <layout>JAR</layout>
+		        </configuration>
+			<executions>
+			    <execution>
+			        <goals>
+			            <goal>repackage</goal>
+			        </goals>
+			    </execution>
+			</executions>
 		    </plugin>
-	    </plugins>
+		</plugins>
 	</build>
-
 </project>
