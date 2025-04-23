@@ -23,13 +23,14 @@ spec:
         - name: bahnhof
           value: Wien
         - name: bahnhofList
-          value: Linz
+          value: Wien
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: bahnhof-wien
 spec:
+  type: LoadBalancer
   selector:
     app: bahnhof-w
   ports:

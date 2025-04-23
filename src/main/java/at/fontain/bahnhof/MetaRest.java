@@ -53,6 +53,12 @@ public class MetaRest {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
+	@GetMapping("/addBahnhof/{bahnhof}/{host}")
+	public ResponseEntity<Void> addBahnhof(@PathVariable String bahnhof, @PathVariable String host) {
+		this.metaService.addBahnhof(bahnhof, host);
+		return new ResponseEntity<>(HttpStatus.OK);
+	}
+	
 	@GetMapping("/erzeugeLokomotive")
 	public ResponseEntity<Lokomotive> erzeugeLokomotive() {
 		Lokomotive lokomotive = this.metaService.erzeugeLokomotive();

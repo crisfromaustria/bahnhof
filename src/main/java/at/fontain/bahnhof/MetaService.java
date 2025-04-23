@@ -56,6 +56,10 @@ public class MetaService {
 		setHostMap(hostMap);
 	}
 	
+	public void addBahnhof(String bahnhof, String host) {
+		this.getHostMap().put(bahnhof, host);
+	}
+	
 	public List<String> bahnhofList() {
 		log.info("bahnhofList()");
 		List<String> bahnhofList = new ArrayList<>();
@@ -183,6 +187,8 @@ public class MetaService {
 		log.info("happy()");
 		Happy happy = new Happy();
 		try {
+			String version = "1.0.0";
+			happy.setVersion(version);
 			String hostAddress = InetAddress.getLocalHost().getHostAddress();
 			String hostName = InetAddress.getLocalHost().getHostName();
 			happy.setHostAddress(hostAddress);

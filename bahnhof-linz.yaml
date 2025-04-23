@@ -30,6 +30,7 @@ kind: Service
 metadata:
   name: bahnhof-linz
 spec:
+  type: LoadBalancer
   selector:
     app: bahnhof-l
   ports:

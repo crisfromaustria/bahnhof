@@ -1,6 +1,7 @@
 package at.fontain.bahnhof.data;
 
 public class Happy {
+	private String version;
 	private String hostAddress;
 	private String hostName;
 	private String bahnhofName;
@@ -8,6 +9,14 @@ public class Happy {
 	private String hostList;
 
 	// getter & setter
+	public String getVersion() {
+		return version;
+	}
+
+	public void setVersion(String version) {
+		this.version = version;
+	}
+
 	public String getHostAddress() {
 		return hostAddress;
 	}
