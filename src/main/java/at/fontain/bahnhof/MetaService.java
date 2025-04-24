@@ -31,6 +31,8 @@ import at.fontain.bahnhof.exception.ZugException;
 public class MetaService {
 	private Logger log = LoggerFactory.getLogger(MetaService.class);
 	
+	private static final String VERSION = "1.0.1";
+	
 	private Map<String, String> hostMap;
 	private Bahnhof bahnhof;
 	private int zugSequence = 0;
@@ -201,7 +203,7 @@ public class MetaService {
 		log.info("happy()");
 		Happy happy = new Happy();
 		try {
-			String version = "1.0.0";
+			String version = VERSION;
 			happy.setVersion(version);
 			String hostAddress = InetAddress.getLocalHost().getHostAddress();
 			String hostName = InetAddress.getLocalHost().getHostName();
