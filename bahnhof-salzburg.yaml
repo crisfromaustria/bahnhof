@@ -30,6 +30,7 @@ kind: Service
 metadata:
   name: bahnhof-salzburg
 spec:
+  type: LoadBalancer
   selector:
     app: bahnhof-s
   ports:

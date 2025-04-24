@@ -32,5 +32,15 @@ pipeline {
 		}
             }
         }
+
+        stage('Deploying Node App to Kubernetes') {
+            steps {
+                sh ('aws eks update-kubeconfig --name bahnhof-cluster --region us-east-1')
+                sh "kubectl get ns"
+                sh "kubectl apply -f bahnhof-wien.yaml"
+                sh "kubectl apply -f bahnhof-linz.yaml"
+                sh "kubectl apply -f bahnhof-salzburg.yaml"
+            }
+        }
     }
 }
