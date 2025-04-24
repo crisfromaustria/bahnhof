@@ -15,7 +15,7 @@ spec:
         app: bahnhof-s
     spec:
       containers:
-      - name: bahnhof
+      - name: bahnhof-s
         image: crisfromaustria/bahnhof
         ports:
         - containerPort: 8080
