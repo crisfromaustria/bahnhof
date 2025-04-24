@@ -142,6 +142,20 @@ public class MetaService {
 		throw new ZugException("Es wurde kein Zug mit dem Namen " + name + " gefunden!");
 	}
 
+	public String verschiebe(String zugNameVon, String zugNameNach) throws ZugException {
+		Zug zugVon = this.zug(zugNameVon);
+		Zug zugNach = this.zug(zugNameNach);
+		
+		List<Wagoon> wagoonList = zugVon.getWagoonList();
+		if (wagoonList.isEmpty()) {
+			throw new ZugException("Zug hat keine Wagoons zum verschieben!");
+		}
+		
+		Wagoon wagoon = wagoonList.remove(zugVon.getWagoonList().size() - 1);
+		zugNach.getWagoonList().add(wagoon);
+		return wagoon.getName();
+	}
+
 	public void fahreZug(String bahnhof, String zugName) throws BahnhofNotFoundException, ZugException {
 		log.info("fahreZug({}, {})", bahnhof, zugName);
 

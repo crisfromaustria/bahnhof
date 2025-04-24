@@ -86,6 +86,19 @@ public class MetaRest {
 		return new ResponseEntity<>(zugList, HttpStatus.OK);
 	}
 	
+	@GetMapping("/verschiebe/{zugVon}/{zugNach}")
+	public ResponseEntity<String> verschieben(@PathVariable String zugVon, @PathVariable String zugNach) {
+		HttpStatus httpStatus = HttpStatus.OK;
+		String wagoon = null;
+		try {
+			wagoon = this.metaService.verschiebe(zugVon, zugNach);
+		} catch (ZugException exc) {
+			log.error("verschieben", exc);
+			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+		}
+		return new ResponseEntity<>(wagoon, httpStatus);
+	}
+	
 	@GetMapping("/fahreZug/{bahnhof}/{zug}")
 	public ResponseEntity<Void> fahreZug(@PathVariable String bahnhof, @PathVariable String zug) {
 		HttpStatus httpStatus = HttpStatus.OK;
