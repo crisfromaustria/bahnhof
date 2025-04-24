@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bahnhof-i
+  labels:
+    app: bahnhof-i
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bahnhof-i
+  template:
+    metadata:
+      labels:
+        app: bahnhof-i
+    spec:
+      containers:
+      - name: bahnhof-i
+        image: crisfromaustria/bahnhof
+        ports:
+        - containerPort: 8080
+        env:
+        - name: bahnhof
+          value: Innsbruck
+        - name: bahnhofList
+          value: Wien,Salzburg
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bahnhof-innsbruck
+spec:
+  type: LoadBalancer
+  selector:
+    app: bahnhof-i
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
