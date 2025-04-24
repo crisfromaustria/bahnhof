@@ -40,6 +40,7 @@ pipeline {
                     sh "kubectl apply -f bahnhof-wien.yaml"
                     sh "kubectl apply -f bahnhof-linz.yaml"
                     sh "kubectl apply -f bahnhof-salzburg.yaml"
+                    sh "kubectl apply -f bahnhof-innsbruck.yaml"
                 }
             }
         }
