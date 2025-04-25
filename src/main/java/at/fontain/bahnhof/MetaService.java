@@ -47,9 +47,14 @@ public class MetaService {
 	
 	private void initBahnhof() {
 		log.info("initBahnhof()");
-		String bahnhof = environment.getProperty("bahnhof");
-		setBahnhof(new Bahnhof());
-		this.getBahnhof().setName(bahnhof);
+		
+		Bahnhof bahnhof = new Bahnhof();
+		setBahnhof(bahnhof);
+		String name = environment.getProperty("bahnhof");
+		if (name != null) {
+			this.getBahnhof().setName(name);
+		}
+		
 		log.info("Bahnhof: {}", bahnhof);
 	}
 	
@@ -219,8 +224,8 @@ public class MetaService {
 		for (String bahnhof : this.getHostMap().keySet()) {
 			String host = this.getHostMap().get(bahnhof);
 			if (!bahnhofList.isEmpty()) {
-				bahnhofList += ", ";
-				hostList += ", ";
+				bahnhofList += ",";
+				hostList += ",";
 			}
 			bahnhofList += bahnhof;
 			hostList += host;

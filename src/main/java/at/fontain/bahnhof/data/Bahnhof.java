@@ -4,8 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Bahnhof {
-	private String name;
+	private String name = "Wien";
 	private List<Zug> zugList;
+
+	@Override
+	public String toString() {
+		return "Bahnhof [name=" + this.getName() + ", zugList=?]";
+	}
 
 	// getter & setter
 	public List<Zug> getZugList() {
