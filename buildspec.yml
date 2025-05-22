@@ -6,14 +6,22 @@ phases:
             java: corretto17
         commands:
             - echo "install phase"
+            - java -version
+            - mvn --version
         finally:
             - echo "install finally"
     pre_build:
         commands: 
             - echo "pre_build phase"
+        finally:
+            - echo "pre_build finally"
     build:
         commands:
             - echo "build phase"
+        finally:
+            - echo "build finally"
     post_build:
         commands:
             - echo "post_build phase"
+        finally:
+            - echo "post_build finally"
