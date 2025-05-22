@@ -16,4 +16,4 @@ phases:
             - echo "build phase"
     post_build:
         commands:
-            - echo post_build phase"
+            - echo "post_build phase"
