@@ -29,3 +29,6 @@ phases:
             - ls -la target
         finally:
             - echo "post_build finally"
+artifacts:
+    files:
+        - "**/*"
