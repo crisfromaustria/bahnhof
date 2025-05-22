@@ -23,10 +23,10 @@ phases:
     post_build:
         commands:
             - echo "post_build phase"
+            - cp target/bahnhof.jar .
             - ls -la
             - pwd
             - ls -la target
-            - mv target/bahnhof.jar .
         finally:
             - echo "post_build finally"
 artifacts:
