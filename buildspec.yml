@@ -26,6 +26,7 @@ phases:
             - ls -la
             - pwd
             - ls -la target
+            - mv target/bahnhof.jar .
         finally:
             - echo "post_build finally"
 artifacts:
