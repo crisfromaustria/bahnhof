@@ -24,5 +24,6 @@ phases:
     post_build:
         commands:
             - echo "post_build phase"
+            - ls -la /codebuild/output/src3238513632/src/github.com/crisfromaustria/bahnhof
         finally:
             - echo "post_build finally"
