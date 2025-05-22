@@ -15,8 +15,9 @@ phases:
             - echo "pre_build finally"
     build:
         commands:
-            - echo "build phase"
+            - echo "build phase BEG"
             - mvn clean package
+            - echo "build phase END"
         finally:
             - echo "build finally"
     post_build:
