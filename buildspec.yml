@@ -7,7 +7,7 @@ phases:
             - java -version
             - mvn --version
         finally:
-            - echo "install finally"
+            - echo "install phase finally"
     pre_build:
         commands: 
             - echo "pre_build phase"
